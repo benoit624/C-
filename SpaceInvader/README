@@ -1,0 +1,17 @@
+Modification ou ajout
+├─┬─ Program.cs
+│ ├─ play() //pour lancer le jeu (difficulté=vitesse de tir énemies)
+│ └─ Environment() //pour dessinner le plateau de jeu
+├─┬─ Charcter.cs
+│ └─ delete_shot() // ajout des bonus tag et adaptation des limites
+├─┬─ Enemy.cs
+│ └─ death //derniere action avant sa mort
+├─┬─ Objet.cs
+│ └─ // contenant toutes les methodes utilisé par tout les objet character shot...
+├─┬─ Explosions.cs
+│ └─ //particule explosion en cercle
+Bonus :
+	- couleurs differentes pour énemies, joueurs, projectiles,stats...
+	- lorsqu'un enemies est tué un bonus aléatoires est libérer (vies , armement &darr)ou pas.
+	- différentes vagues de monstres avec plus d'enemies et plus robuste
+	- stats affiché vie restante a l'enemies et stats du joueur en bas

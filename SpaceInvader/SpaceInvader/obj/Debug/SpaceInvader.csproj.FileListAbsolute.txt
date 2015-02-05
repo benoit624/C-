@@ -1,0 +1,6 @@
+D:\benoit624\Desktop\Tp\tp5 c#\SpaceInvader\SpaceInvader\bin\Debug\SpaceInvader.exe.config
+D:\benoit624\Desktop\Tp\tp5 c#\SpaceInvader\SpaceInvader\obj\Debug\SpaceInvader.csprojResolveAssemblyReference.cache
+D:\benoit624\Desktop\Tp\tp5 c#\SpaceInvader\SpaceInvader\bin\Debug\SpaceInvader.exe
+D:\benoit624\Desktop\Tp\tp5 c#\SpaceInvader\SpaceInvader\bin\Debug\SpaceInvader.pdb
+D:\benoit624\Desktop\Tp\tp5 c#\SpaceInvader\SpaceInvader\obj\Debug\SpaceInvader.exe
+D:\benoit624\Desktop\Tp\tp5 c#\SpaceInvader\SpaceInvader\obj\Debug\SpaceInvader.pdb
