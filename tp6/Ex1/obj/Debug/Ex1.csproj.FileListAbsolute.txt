@@ -1,0 +1,5 @@
+D:\benoit624\Desktop\Tp\tp6\Ex1\bin\Debug\Ex1.exe.config
+D:\benoit624\Desktop\Tp\tp6\Ex1\bin\Debug\Ex1.exe
+D:\benoit624\Desktop\Tp\tp6\Ex1\bin\Debug\Ex1.pdb
+D:\benoit624\Desktop\Tp\tp6\Ex1\obj\Debug\Ex1.exe
+D:\benoit624\Desktop\Tp\tp6\Ex1\obj\Debug\Ex1.pdb
