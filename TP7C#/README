@@ -1,0 +1,31 @@
+BONNUS
+	-exec.php qui ne fonctionne pas pour tenter de verifier lors de l'upload ATTENTION a ne surtout pas ouvrir si vous ne voulez pas de programme fantome qui ne s'arrete pas de s'executer.
+
+	vrai bonus maintenant:
+		-mini intra avec espace eleves et espace ACDC (sans securité ni mot de passe)
+
+		-on peut uploader sujet corrigé fichier et rendu pour les ACDC
+
+		-on peut uploader son rendu (pas de verification de l'identité)
+
+		-lors de l'execution de la moulinette affichage des resultat de chacun.
+
+		pour la moulinette verification du rendu conforme rendu-tp-login_x
+
+MODE D'EMPLOIS
+	-copier tout le dossier serveur dans son serveur.
+	-Lancer son serveur et acceder au dossier.
+	-Entrée comme utilisateur "ACDC" pour se conecter en tant que sinon dont care connecter vous simplement.
+	-Cliquez sur l'onglet TP.
+	-Entrée n'importe quel nom pour le nouveau dossier cela va crée un tp.patientez...
+	-cliquez  sur le TP qui vient d'apparaitre 
+	-pour ce qui va suivre les fichier sont preparer dans le dossier "AUploaderPourTp"
+	-vous pouvez uploader sur nouveau sujet les fichier sujet et fichier associer sous format file.
+	-vous pouvez uploder les corrigé uniquement sous format zip de meme pour les rendu.
+	-executer la moulinette qui se trouve dans le dossier du tp.
+	-un fichier resultat va se crée.
+	-en dynamique dans la page web du tp dans le bloc "Resultat Provisoire" va apparaitre les resultat des eleves.
+	-cliquez sur Déconexion pour vou déconnecter.
+	-FIN en espérant que le design vous plaira ;).
+
+
