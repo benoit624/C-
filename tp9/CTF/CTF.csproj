@@ -7,8 +7,8 @@
     <ProjectGuid>{D0DD59DD-4E01-4BB5-BE24-6C19E9F53382}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>tp15</RootNamespace>
-    <AssemblyName>tp15</AssemblyName>
+    <RootNamespace>CTF</RootNamespace>
+    <AssemblyName>CTF</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,8 +44,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client.cs" />
+    <Compile Include="Exercices\Ex8.cs" />
+    <Compile Include="Exercices\Ex0.cs" />
+    <Compile Include="Exercices\Ex1.cs" />
+    <Compile Include="Exercices\Ex2.cs" />
+    <Compile Include="Exercices\Ex3.cs" />
+    <Compile Include="Exercices\Ex4.cs" />
+    <Compile Include="Exercices\Ex5.cs" />
+    <Compile Include="Exercices\Ex6.cs" />
+    <Compile Include="Exercices\Ex7.cs" />
+    <Compile Include="Exercices\Ex9.cs" />
+    <Compile Include="Exercices\ExA.cs" />
+    <Compile Include="Exercices\ExB.cs" />
+    <Compile Include="Exercices\ExC.cs" />
+    <Compile Include="Exercices\ExD.cs" />
+    <Compile Include="ExX.cs" />
+    <Compile Include="Parse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
