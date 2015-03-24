@@ -19,8 +19,20 @@ namespace tiny42sh
                     case Keyword.ls:
                         execute_ls(cmd);
                         break;
+                    case Keyword.cd:
+                        execute_cd(cmd);
+                        break;
                     case Keyword.cat:
                         execute_cat(cmd);
+                        break;
+                    case Keyword.touch:
+                        execute_touch(cmd);
+                        break;
+                    case Keyword.rm:
+                        execute_rm(cmd);
+                        break;
+                    case Keyword.rmdir:
+                        execute_rmdir(cmd);
                         break;
                     case Keyword.clear:
                         Console.Clear();
@@ -94,6 +106,75 @@ namespace tiny42sh
                 else
                 {
                     Console.WriteLine("cat: {0}: Is not a file", cmd[i]);
+                }
+            }
+        }
+        static private void execute_cd(string[] cmd)
+        {
+            if (cmd.Length > 1 && Directory.Exists(cmd[1]))
+                Directory.SetCurrentDirectory(cmd[1]);
+            else
+            {
+                Console.WriteLine("cd: Invalid number of arguments");
+            }
+        }
+        static private void execute_touch(string[] cmd)
+        {
+            if (cmd.Length < 2)
+                Console.WriteLine("cd: Invalid number of arguments");
+            else
+            {
+                for (int i = 1; i < cmd.Length; i++)
+                {
+                    try
+                    {
+                        if (File.Exists(cmd[i]))
+                        {
+                            File.SetLastAccessTime(cmd[i], DateTime.Now);
+                            Console.WriteLine(cmd[i] + ": " + File.GetLastAccessTime(cmd[i]));
+                        }
+                        if (Directory.Exists(cmd[i]))
+                        {
+                            Directory.SetLastAccessTime(cmd[i], DateTime.Now);
+                            Console.WriteLine(cmd[i] + ": " + File.GetLastAccessTime(cmd[i]));
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("cd: {0} Programme en cour d'execution", cmd[i]);
+                    }     
+                }
+            }
+        }
+        static private void execute_rm(string[] cmd)
+        {
+            if (cmd.Length < 2)
+                Console.WriteLine("rm: Invalid number of arguments");
+            else
+            {
+                for (int i = 1; i < cmd.Length; i++)
+                {                
+                    if (File.Exists(cmd[i]))
+                    {
+                        File.Delete(cmd[i]);
+                        Console.WriteLine("rm: " + cmd[i] + ": remove");
+                    }                   
+                }
+            }
+        }
+        static private void execute_rmdir(string[] cmd)
+        {
+            if (cmd.Length < 2)
+                Console.WriteLine("rm: Invalid number of arguments");
+            else
+            {
+                for (int i = 1; i < cmd.Length; i++)
+                {
+                    if (Directory.Exists(cmd[i]))
+                    {
+                        Directory.Delete(cmd[i]);
+                        Console.WriteLine("rm: " + cmd[i] + ": remove");
+                    }
                 }
             }
         }

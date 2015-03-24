@@ -11,6 +11,9 @@ namespace tiny42sh
         ls,
         cd,
         cat,
+        touch,
+        rm,
+        rmdir,
         exit,
         clear,
         error
@@ -37,6 +40,12 @@ namespace tiny42sh
                     return Keyword.cd;
                 case "cat":
                     return Keyword.cat;
+                case "touch":
+                    return Keyword.touch;
+                case "rm":
+                    return Keyword.rm;
+                case "rmdir":
+                    return Keyword.rmdir;
                 case "exit":
                     return Keyword.exit;
                 case "clear":
