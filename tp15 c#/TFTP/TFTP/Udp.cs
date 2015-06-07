@@ -6,10 +6,13 @@ namespace TFTP
 {
     abstract class Udp
     {
+        #region VARIABLE
         public byte[] Bytes;
         protected Socket sock;
         protected IPEndPoint localEndPoint;
-        protected delegate void sending(string Filename);
+        protected EndPoint test;
+        #endregion
+        #region CONSTRUCTOR
         public Udp(IPEndPoint localEndPoint)
         {
             this.localEndPoint = localEndPoint;
@@ -19,13 +22,12 @@ namespace TFTP
                                          ProtocolType.Udp
                                          );
         }
+        #endregion
+        #region FUNCTION
         public abstract void Read(string target);
         public abstract void Write(string target);
-        private void send(sending send)
-        {
-
-        }
-
-
+        public abstract void communication();
+        public abstract void communication(Operation op, string target);
+        #endregion
     }
 }

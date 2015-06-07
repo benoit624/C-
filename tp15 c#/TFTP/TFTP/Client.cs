@@ -7,43 +7,38 @@ namespace TFTP
 {
     class Client : Udp
     {
+        #region CONSTRUCTOR
         public Client(string server)
             : base(new IPEndPoint(IPAddress.Parse(server), 69))
         {
             Console.WriteLine("myTFTP Client: ");
             
         }
-        public void send(string Filename)
+        #endregion
+        #region COMMUNICATION
+        public override void communication(Operation op, string target)
         {
-            if (File.Exists(Filename))
+            switch (op)
             {
-                try
-                {
-                    EndPoint test = (EndPoint)localEndPoint;
-                    sock.SendTo(Bytes, test);
-                    Console.WriteLine("Connection success");
-                }
-                catch (SocketException ex)
-                {
-                    Console.WriteLine("Connection failed: " + ex.ErrorCode);
-                }
-                finally
-                {
-                    sock.Close();
-                    Console.WriteLine("Finish");
-                }
+                case Operation.RRQ:
+                    Read(target);
+                    break;
+                case Operation.WRQ:
+                    Write(target);
+                    break;
+                default:
+                    break;
             }
-            else
-                Console.WriteLine("File don't exist");
-            
         }
-        public byte[] loadfile(string filename)
+        /*
+         * NOT IMPLEMENTED SERVER COMMUNICATION
+         * */
+        public override void communication()
         {
-            if (File.Exists(filename))
-                return File.ReadAllBytes(filename);
-            else
-                return null;
+            throw new NotImplementedException();
         }
+        #endregion
+        #region FUNCTIONS
         public override void Read(string target)
         {
             try
@@ -82,7 +77,59 @@ namespace TFTP
         }
         public override void Write(string target)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Packet pck = new Packet(Operation.WRQ, target+"(copy)", "OCTET");
+                //Console.WriteLine(pck.ToString());
+                sock.SendTo(pck.Bytes, localEndPoint);
+                EndPoint test = localEndPoint;
+                sock.ReceiveTimeout = 1;
+                if (File.Exists(target))
+                {
+                    FileStream f = File.OpenRead(target);
+                    try
+                    {
+                        byte[] send = new byte[512];
+                        for (int j = 0; j < f.Length / 512 + 1; j++)
+                        {
+                            f.Read(send, 0, 512);
+                            byte[] b = BitConverter.GetBytes(j);
+                            pck = new Packet(b, send);
+                            Console.WriteLine(pck.ToString());
+                            sock.SendTo(pck.Bytes, test);
+                            sock.ReceiveFrom(Bytes, ref test);
+                            pck.Bytes = Bytes;
+                            Console.WriteLine(pck.ToString());
+                            if (BitConverter.ToInt16(Bytes, 2) != j)
+                                return;
+                        }
+                    }
+                    finally
+                    {
+                        f.Close();
+                    }
+
+                }
+                else
+                {
+                    byte[] b = new byte[2] { 0x0, 0x1 };
+                    pck = new Packet(b, "File_don't_exist");
+                    sock.SendTo(pck.Bytes, test);
+                    Console.WriteLine(pck.ToString());
+
+                }
+
+            }
+            catch (SocketException ex)
+            {
+                Console.WriteLine("Connection failed: " + ex.ErrorCode);
+            }
+            finally
+            {
+                sock.Close();
+                Console.WriteLine("Finish");
+            }
         }
+        #endregion
     }
 }

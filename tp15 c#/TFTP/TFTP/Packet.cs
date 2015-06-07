@@ -15,7 +15,10 @@ namespace TFTP
     }
     class Packet
     {
+        #region VARIABLE
         public byte[] Bytes;
+        #endregion
+        #region CONSTRUCTOR
         public Packet(Operation op, string Filename, string Mode)
         {
             byte[] buffer = System.Text.Encoding.ASCII.GetBytes(Filename);
@@ -57,6 +60,8 @@ namespace TFTP
             for (int i = 0; i < buffer.Length; i++, j++)
                 Bytes[j] = buffer[i];
         }//ERROR
+        #endregion
+        #region FUNCTION
         public override string ToString()
         {
             string str = new String('-', 30);
@@ -87,7 +92,7 @@ namespace TFTP
                     j = i;
                     while (Bytes[j] != 0)
                         j++;
-                    str += System.Text.Encoding.ASCII.GetString(Bytes, i, j - 2);
+                    str += System.Text.Encoding.ASCII.GetString(Bytes, i, j - 1);
                     break;
                 case 0x3:
                     str += "DATA";
@@ -114,5 +119,6 @@ namespace TFTP
             }
             return str;
         }
+        #endregion
     }
 }
